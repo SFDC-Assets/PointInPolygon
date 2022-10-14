@@ -2,8 +2,8 @@
 ![Status](https://img.shields.io/badge/status-Complete-green)
 ![Geography](https://img.shields.io/badge/Geography-US-blue)
 
-<h1 align="center">Dynamic SF Maps</h1>
-<p align="center">This package contains apex code to dynamically render the locations of different records returned by a SOQL query into Salesforce Maps.  The premise of this component is based off of <a href="https://help.salesforce.com/s/articleView?id=000354507&type=1">this Salesforce Maps documentation</a> which details how to pass records into a custom URL that will render a list of records in a custom layer on the Map. </p>
+<h1 align="center">PointInPolygon Lead Trigger</h1>
+<p align="center">This package contains an apex trigger and class that determines which Salesforce Maps layer that a given address resides in. The name of the SF Maps layer is stored in a custom field on the lead object called inLayer__c.  This package uses the SF Maps API Geocode method to convert to Lat/long and the PointInPolygon method to determine the layer. </p>
 
 <!-- Sections below are Optional -->
 
@@ -48,17 +48,6 @@ baseURL = baseURL+'&baseObjectId=a2E8Z0000077EolUAE&tooltipField=PBSI__location_
 
 Now that our URL is built and returned at the end of the code, we can configure a basic flow to call our class and open the URL.
 
-## Flow Setup
-
-The flow used here is super basic and consists of only 3 basic steps: rendering a button, calling our apex class, and then opening the URL with the <a href="https://unofficialsf.com/new-ways-to-open-web-pages-from-flow/">UnofficialSF OpenURL action</a>.
-
-![flow overview](images/flow_overview.png)
-
-The only thing to note here is to ensure that you are passing the output parameters correctly to the openURL function like so:
-
-![apex action](images/apex_action.png)
-
-![open url](images/open_url.png)
 
 
 ## Maintainer
