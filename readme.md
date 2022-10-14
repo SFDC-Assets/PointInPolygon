@@ -55,6 +55,13 @@ The other key piece of this code occurs on lines 80-84 and line 90, where we bui
 
 Lastly, please note that the GeocodeAddress class has to be run asychronously.  The use of the Salesforce Maps API methods requires this by design, so testing is much more of a pain because of this.  In order to test our code, we need to create something known as a <a href="https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_classes_restful_http_testing_httpcalloutmock.htm">mock class</a>.  This class essentially fakes the future async callout from apex and returns a hard coded response for testing purposes.  See GeocodeMockTester for an example, but please note that you will need to create your own Mock response in order to get the tests to work in your org.
 
+## Deploy this package
+
+<a href="https://githubsfdeploy.herokuapp.com?owner=SFDC-Assets&repo=PointInPolygon">
+  <img alt="Deploy to Salesforce"
+       src="https://raw.githubusercontent.com/afawcett/githubsfdeploy/master/deploy.png">
+</a>
+
 ## Maintainer
 
 Jack Galletta, Public Sector Solution Engineer
