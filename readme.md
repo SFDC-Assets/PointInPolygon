@@ -30,7 +30,7 @@ Second, Creation of a custom setting called SFMapsLayerFolder__c with a single t
 With the data model changes made, our code should ideally be able to work right away once plugged into the org, but there are a few caveats and important pieces of the code that you may need to modify.
 
 
-
+![custom setting](images/customsetting.png)
 
 
 ## Maintainer
