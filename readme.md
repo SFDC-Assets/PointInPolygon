@@ -29,11 +29,31 @@ Second, Creation of a custom setting called SFMapsLayerFolder__c with a single t
 
 ## Code Setup
 
-With the data model changes made, our code should ideally be able to work right away once plugged into the org, but there are a few caveats and important pieces of the code that you may need to modify.
+With the data model changes made, our code should ideally be able to work right away once plugged into the org, but there are a few important parts that should be noted.
 
+First, please note that the GeocodeAddress class has to be run asychronously.  The use of the Salesforce Maps API methods requires this by design so testing is much more of a pain because of this.  In order to test our code, we need to create something known as a <a href="https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_classes_restful_http_testing_httpcalloutmock.htm">mock class</a>.  This class essentially fakes the future async callout from apex and returns a hard coded response for testing purposes.  See GeocodeMockTester for an example, but please note that you will need to create your own Mock response in order to work in your org.
 
+Lines 25-29 of GeocodeAddress.cls are essentially taking our address, converting it to lat/long, and then spitting it back out.  Some additional data quality checks and regex stuff is done just below it to format it for our next step.
+```
+  // Call the Geocode() method with the address.
+  Map<String, Object> response = maps.API.Geocode(options);
+  
+  // Log the resulting geographical coordinates and formatted address. 
+  myData = response.get('data');
+```
 
+The other key piece of this code occurs on lines 80-84 and line 90, where we built our request for the PointInPolygon method, and then pass it in to check which layer our code resides in.
 
+```
+Map<String, Object> request = new Map<String, Object> {
+'version' => '2',
+'points' => coordinateList,
+'MATerritoryIds' => MATerritoryIds
+};
+```
+```
+Map<String,Object> responselayer = maps.Api.PointInPolygon(request);
+```
 
 ## Maintainer
 
