@@ -3,7 +3,7 @@
 ![Geography](https://img.shields.io/badge/Geography-US-blue)
 
 <h1 align="center">PointInPolygon Lead Trigger</h1>
-<p align="center">This package contains an apex trigger and class that determines which Salesforce Maps layer that a given address resides in. The name of the SF Maps layer is stored in a custom field on the lead object called inLayer__c.  This package uses the SF Maps API Geocode method to convert to Lat/long and the PointInPolygon method to determine the layer. </p>
+<p align="center">This package contains an apex trigger and class that determines which Salesforce Maps layer that a given address resides in. The name of the SF Maps layer is stored in a custom field on the lead object called inLayer__c.  This package uses 2 methods from <a href="https://developer.salesforce.com/docs/atlas.en-us.maps_developer_guide.meta/maps_developer_guide/maps_apex_pointinpolygon.htm">this SF Maps developer documentation</a> to do so.  The SF Maps API Geocode method converts an address field into Lat/long and the PointInPolygon method determines the layer containing those coordinates. </p>
 
 <!-- Sections below are Optional -->
 
@@ -11,7 +11,7 @@
 
 ## Summary
 
-This component was originally designed for the Organization Clothing and Individual Equipment (OCIE) program for the U.S. Army.  The goal of this component was to render all of the warehouse locations that contained the requested order line items onto a dynamically created Salesforce Maps layer.  From the simple push of a button on the order form, users would be automatically redirected to a view of Salesforce Maps that displays all of the locations that contained the requested items on the order form.
+The original purpose of this component was to replace some old apex code that cycled through a set of hard coded ESRI layers.  This improved solution allows for the dynamic addition of new layers in Salesforce Maps, modification of existing layers, and deletion of layers all without having to modify the code.  By using a custom setting in Salesforce to store the folder name, users only have to modify a single value in Salesforce to point this code towards any Salesforce Maps layer folder.
 
 ![Map View](images/map_view.png)
 
