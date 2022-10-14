@@ -29,6 +29,8 @@ Second, Creation of a custom setting called SFMapsLayerFolder__c with a single t
 
 ![custom setting](images/customsetting.png)
 
+You will then want to create an instance of the setting in order to store your folder name value.  The code is designed to query only one of these setting records, so make sure to create only a single instance of the SFMapsLayerFolder__c setting.
+
 ## Code Setup
 
 With the data model changes made, our code should ideally be able to work right away once plugged into the org, but there are a few important parts that should be noted.  Again if you have any difficulty implementing/modifying/understanding this code, please refer back to the <a href="https://developer.salesforce.com/docs/atlas.en-us.maps_developer_guide.meta/maps_developer_guide/maps_apex_pointinpolygon.htm">Salesforce Maps developer documentation</a> for additional details.
