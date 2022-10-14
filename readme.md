@@ -23,14 +23,16 @@ There are only two additions that need to be made to an existing Salesforce org 
 
 First on the lead object, a custom text Field called inLayer__c must be created to store the resulting layer value in.
 
-Second, Creation of a custom setting called SFMapsLayerFolder__c with a single text field of Folder_Name__c.  This setting is used to store the corresponding folder of layers that you want to point the code towards.  This setting removes the need to edit any code when you want to change the folder containing the layers.
+Second, Creation of a custom setting called SFMapsLayerFolder__c with a single text field of Folder_Name__c.  This setting is used to store the corresponding folder of layers that you want to point the code towards.  This setting removes the need to edit any code when you want to change the folder containing the layers.  See the below image on the setup of the custom setting.
+
+![custom setting](images/customsetting.png)
 
 ## Code Setup
 
 With the data model changes made, our code should ideally be able to work right away once plugged into the org, but there are a few caveats and important pieces of the code that you may need to modify.
 
 
-![custom setting](images/customsetting.png)
+
 
 
 ## Maintainer
