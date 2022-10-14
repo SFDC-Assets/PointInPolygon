@@ -1,3 +1,12 @@
+//  FindLayerFromLead Trigger
+//
+//  Copyright (c) 2022, salesforce.com, inc.
+//  All rights reserved.
+//  SPDX-License-Identifier: BSD-3-Clause
+//  For full license text, see the LICENSE file in the repo root or https://opensource.org/licenses/BSD-3-Clause
+//
+//  Contact: j.galletta@salesforce.com
+
 trigger FindLayerFromLead on Lead (after insert, after update) { 
     if(!System.isFuture()){
     	Lead l = [SELECT Id, Address from Lead where Id = : trigger.new[0].id];
