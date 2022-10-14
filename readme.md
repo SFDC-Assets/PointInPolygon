@@ -17,11 +17,13 @@ The original purpose of this component was to replace an old solution that cycle
 
 [![Watch the video](images/youtubeplayer.png)](https://www.youtube.com/watch?v=scIZWILpQRs)
 
-The Apex mapping function is then embedded into a flow button that can be placed directly on the record page that you will call the action from, and then utilizes the <a href="https://unofficialsf.com/new-ways-to-open-web-pages-from-flow/">UnofficialSF OpenURL flow component</a> to open the layer in Salesforce Maps.
-
 ## Data Model Setup
 
 There are only two additions that need to be made to an existing Salesforce org in order for this component to work.  
+
+First on the lead object, a custom text Field called inLayer__c must be created to store the resulting layer value in.
+
+Second, Creation of a custom setting called SFMapsLayerFolder__c with a single text field of Folder_Name__c.  This setting is used to store the corresponding folder of layers that you want to point the code towards.  This setting removes the need to edit any code when you want to change the folder containing the layers.
 
 ## Code Setup
 
