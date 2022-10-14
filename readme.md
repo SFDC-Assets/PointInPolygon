@@ -29,7 +29,7 @@ Second, Creation of a custom setting called SFMapsLayerFolder__c with a single t
 
 ## Code Setup
 
-With the data model changes made, our code should ideally be able to work right away once plugged into the org, but there are a few important parts that should be noted.  Again if you have any difficulty implementing/modifying this code, please refer back to the <a href="https://developer.salesforce.com/docs/atlas.en-us.maps_developer_guide.meta/maps_developer_guide/maps_apex_pointinpolygon.htm">Salesforce Maps developer documentation</a>
+With the data model changes made, our code should ideally be able to work right away once plugged into the org, but there are a few important parts that should be noted.  Again if you have any difficulty implementing/modifying/understanding this code, please refer back to the <a href="https://developer.salesforce.com/docs/atlas.en-us.maps_developer_guide.meta/maps_developer_guide/maps_apex_pointinpolygon.htm">Salesforce Maps developer documentation</a>
 
 The first key piece of code occurs on lines 25-29 of GeocodeAddress.cls, which are essentially taking our address, converting it to lat/long, and then spitting it back out.  Some additional data quality checks and regex stuff is done just below it to format it for our next step.
 ```
