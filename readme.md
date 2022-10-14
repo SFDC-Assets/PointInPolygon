@@ -3,7 +3,7 @@
 ![Geography](https://img.shields.io/badge/Geography-US-blue)
 
 <h1 align="center">PointInPolygon Lead Trigger</h1>
-<p align="center">This package contains an apex trigger and class that determines which Salesforce Maps layer that a given address resides in. The name of the SF Maps layer is stored in a custom field on the lead object called inLayer__c.  This package uses 2 methods from <a href="https://developer.salesforce.com/docs/atlas.en-us.maps_developer_guide.meta/maps_developer_guide/maps_apex_pointinpolygon.htm">this SF Maps developer documentation</a> to do so.  The SF Maps API Geocode method converts an address field into Lat/long and the PointInPolygon method determines the layer containing those coordinates. </p>
+<p align="center">This package contains an apex trigger and class that determines which Salesforce Maps layer that a given address resides in. The name of the SF Maps layer is stored in a custom field on the lead object called inLayer__c.  This package uses 2 methods from to do so.  The SF Maps API Geocode method converts an address field into Lat/long and the PointInPolygon method determines the layer containing those coordinates. </p>
 
 <!-- Sections below are Optional -->
 
@@ -29,7 +29,7 @@ Second, Creation of a custom setting called SFMapsLayerFolder__c with a single t
 
 ## Code Setup
 
-With the data model changes made, our code should ideally be able to work right away once plugged into the org, but there are a few important parts that should be noted.
+With the data model changes made, our code should ideally be able to work right away once plugged into the org, but there are a few important parts that should be noted.  Again if you have any difficulty implementing/modifying this code, please refer back to the <a href="https://developer.salesforce.com/docs/atlas.en-us.maps_developer_guide.meta/maps_developer_guide/maps_apex_pointinpolygon.htm">Salesforce Maps developer documentation</a>
 
 The first key piece of code occurs on lines 25-29 of GeocodeAddress.cls, which are essentially taking our address, converting it to lat/long, and then spitting it back out.  Some additional data quality checks and regex stuff is done just below it to format it for our next step.
 ```
